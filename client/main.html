@@ -1,0 +1,57 @@
+<head>
+  <title>VoteApp</title>
+</head>
+
+<!-- Templates -->
+<body>
+  {{> header}}
+  {{> main}}
+</body>
+
+<template name="header">
+  <header>
+    <hgroup>
+      <h1> {{title}} </h1>
+      <h2> {{tagline}} </h2>
+    </hgroup>
+  </header>
+</template>
+
+<template name = "main">
+  <section>
+    {{>dinos}}
+    {{>addDino}}
+  </section>
+</template>
+
+<!-- Table Section -->
+<template name="dinos">
+  <table>
+    <thead><tr>
+        <td class="dino">Name</td>
+        <td class="votes">Votes</td>
+    </tr></thead>
+
+    <tbody>
+      {{#each dinos}}
+        {{>dino}}
+      {{else}}
+        <tr><td>No Dinos Found</td></tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name ="dino">
+  <tr>
+    <td> {{name}}</td>
+    <td> {{votes}}</td>
+  </tr>
+</template>
+<!-- Form Element -->
+<template name ="addDino">
+  <div>
+    <input id="dinoToAdd" placeholder="Add a text"/>
+    <input id="addDino" type="button" value="Add!"/>
+  </div>
+</template>
